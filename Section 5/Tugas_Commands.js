@@ -64,7 +64,7 @@ Cypress.Commands.add('Pay', () => {
     cy.get('#sp_amount').clear()
     cy.get('#sp_amount').type('150')
 
-    // Add Date
+    // Add Date 
     cy.get('#sp_date').clear()
     cy.get('#sp_date').click()
     _.times(10, () => { cy.get('.ui-datepicker-next').click() })
