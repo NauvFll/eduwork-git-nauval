@@ -1,9 +1,14 @@
 /// <reference types="cypress" />
 
-describe('Fixtures Data', function() {
+describe('Fixtures Data', () => {
 
     it('Visit the website', () => {
-        cy.visit('https://www.saucedemo.com/', { timeout: 10000 })
+        cy.clearCookies()
+        cy.clearLocalStorage()
+        cy.request('https://www.saucedemo.com/')
+        cy.visit('https://www.saucedemo.com/')
+        cy.reload()
+        cy.wait(500)
         cy.url().should('include','saucedemo.com')
 
         // Use Fixtures Data in Login
@@ -14,7 +19,10 @@ describe('Fixtures Data', function() {
             cy.get('#user-name').type(username)
         // Input Password
             cy.get('#password').type(password)
-            cy.contains('LOGIN').click()
+            cy.get('#login-button').click()
+        // Logout
+            cy.get('#react-burger-menu-btn').click()
+            cy.contains('Logout').click()
         });
     });
 });
