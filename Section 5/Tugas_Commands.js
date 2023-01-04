@@ -64,19 +64,10 @@ Cypress.Commands.add('Pay', () => {
     cy.get('#sp_amount').clear()
     cy.get('#sp_amount').type('150')
 
-    // Add Date
+    // Add Date 
     cy.get('#sp_date').clear()
     cy.get('#sp_date').click()
-    cy.get('.ui-datepicker-next').click()
-    cy.get('.ui-datepicker-next').click()
-    cy.get('.ui-datepicker-next').click()
-    cy.get('.ui-datepicker-next').click()
-    cy.get('.ui-datepicker-next').click()
-    cy.get('.ui-datepicker-next').click()
-    cy.get('.ui-datepicker-next').click()
-    cy.get('.ui-datepicker-next').click()
-    cy.get('.ui-datepicker-next').click()
-    cy.get('.ui-datepicker-next').click()
+    _.times(10, () => { cy.get('.ui-datepicker-next').click() })
     cy.contains('7').click()
 
     // Add Description
