@@ -26,7 +26,16 @@ describe('E2E', () => {
         
         // Sort A-Z
             cy.sortAZ()
+        
+        // Sort Z-A
+            cy.sortZA()
 
+        // Sort Price High-Low
+            cy.HighLow()
+
+        // Sort Price Low-High
+            cy.LowHigh()
+            
         //  Add To Cart
             cy.AddCart()
         
