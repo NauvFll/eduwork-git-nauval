@@ -41,6 +41,18 @@ Cypress.Commands.add('sortAZ', () => {
     cy.get('.product_sort_container').select('az', 'Name (A to Z)')
 })
 
+Cypress.Commands.add('sortZA', () => {
+    cy.get('.product_sort_container').select('za', 'Name (Z to A)')
+})
+
+Cypress.Commands.add('HighLow', () => {
+    cy.get('.product_sort_container').select('hilo', 'Price (high to low)')
+})
+
+Cypress.Commands.add('LowHigh', () => {
+    cy.get('.product_sort_container').select('lohi', 'Price (low to high)')
+})
+
 Cypress.Commands.add('AddCart', () => {
     cy.get('.inventory_item_name').should('be.visible')
     cy.get('#add-to-cart-sauce-labs-backpack').click()
