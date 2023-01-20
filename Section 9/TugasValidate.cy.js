@@ -1,9 +1,11 @@
-describe('Validate Limber', () => {
+describe('Validate Content', () => {
 
-it.only('Validate Content', () => {
-    cy.request('https://pokeapi.co/api/v2/ability/7/').as('pokemon')
-    cy.get('@pokemon').its('body').should('include', {name: "limber"})
-
-    });
- })
- 
+    it.only('Successfully Validate Limber', () => {
+        
+        cy.request('GET', 'https://pokeapi.co/api/v2/pokemon/ditto').then((response) => {
+            expect(response.status).equal(200)
+            expect(response.body.abilities[0].ability.name).to.eql('limber')
+            expect(response.body.abilities[0].ability.url).to.eql('https://pokeapi.co/api/v2/ability/7/')
+        })
+    })
+})
